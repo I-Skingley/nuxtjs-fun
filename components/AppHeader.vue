@@ -7,33 +7,42 @@
         viewBox="0 0 100 100"
         width="40"
       >
-        <rect
-          v-if="!show"
-          class="line"
-          width="80"
-          height="10"
-          x="10"
-          y="15"
-          rx="5"
-        ></rect>
-        <rect
-          v-if="!show"
-          class="line"
-          width="80"
-          height="10"
-          x="10"
-          y="45"
-          rx="5"
-        ></rect>
-        <rect
-          v-if="!show"
-          class="line"
-          width="80"
-          height="10"
-          x="10"
-          y="75"
-          rx="5"
-        ></rect>
+        <Transition name="slide-up">
+          <!-- <Transition name="top"> -->
+          <rect
+            v-if="!show"
+            class="line top"
+            width="80"
+            height="10"
+            x="10"
+            y="25"
+            rx="5"
+          ></rect>
+        </Transition>
+        <!-- <Transition name="middle"> -->
+        <Transition name="middle">
+          <rect
+            v-if="show"
+            class="line"
+            width="10"
+            height="80"
+            x="45"
+            y="10"
+            rx="5"
+          ></rect>
+        </Transition>
+        <!-- <Transition name="bottom"> -->
+        <Transition name="slide-down">
+          <rect
+            v-if="!show"
+            class="line"
+            width="80"
+            height="10"
+            x="10"
+            y="65"
+            rx="5"
+          ></rect>
+        </Transition>
       </svg>
     </button>
     <div class="header-items">
