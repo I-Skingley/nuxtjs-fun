@@ -57,8 +57,9 @@ video {
 }
 
 .header-items {
-  margin-left: 15vw;
+  margin-left: 0;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .header-item {
@@ -111,45 +112,45 @@ video {
 /* sidebar button animation */
 
 .slide-up-enter-active {
-    transition: all 0.3s ease-out;
-  }
-  
-  .slide-up-leave-active {
-    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-  }
-  
-  .slide-up-enter-from,
-  .slide-up-leave-to {
-    y: 0px;
-    opacity: 0;
-  }
-  
-  .slide-down-enter-active {
-    transition: all 0.3s ease-out;
-  }
-  
-  .slide-down-leave-active {
-    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-  }
-  
-  .slide-down-enter-from,
-  .slide-down-leave-to {
-    y: 100px;
-    opacity: 0;
-  }
-  
-  .middle-enter-active {
-    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-  }
-  .middle-leave-active {
-    transition: all 200ms linear;
-  }
-  .middle-enter-from,
-  .middle-leave-to {
-    transform-origin: center;
-    transform: scaleY(0);
-    opacity: 0;
-  }
+  transition: all 0.3s ease-out;
+}
+
+.slide-up-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-up-enter-from,
+.slide-up-leave-to {
+  y: 0px;
+  opacity: 0;
+}
+
+.slide-down-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-down-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-down-enter-from,
+.slide-down-leave-to {
+  y: 100px;
+  opacity: 0;
+}
+
+.middle-enter-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.middle-leave-active {
+  transition: all 200ms linear;
+}
+.middle-enter-from,
+.middle-leave-to {
+  transform-origin: center;
+  transform: scaleY(0);
+  opacity: 0;
+}
 
 /* sidebar */
 
@@ -179,6 +180,7 @@ video {
   padding-bottom: auto;
   font-size: 30px;
 }
+
 
 /* Menu Transition Animation */
 
@@ -215,27 +217,27 @@ video {
 }
 
 @media (max-width: 640px) {
-    .menu-item {
-        font-size:20px;
-    }
+  .menu-item {
+    font-size: 20px;
+  }
 
-    .header {
-        position:fixed;
-        top:0;
-    }
+  .header {
+    position: fixed;
+    top: 0;
+  }
 
-    .header::before {
-        content: "";
-        width: 100%;
-        height: 48px;
-        position: absolute;
-        top:0;
-        left: 0;
-        background-size: none;
-        background-repeat: none;
-        background-position: none;
-        background-image: none;
-      }
+  .header::before {
+    content: "";
+    width: 100%;
+    height: 48px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: none;
+    background-repeat: none;
+    background-position: none;
+    background-image: none;
+  }
 }
 
 .glow:hover {
@@ -258,4 +260,53 @@ video {
     text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 10px #b700ff,
       0 0 45px #b700ff, 0 0 55px #b700ff, 0 0 70px #b700ff, 0 0 80px #b700ff;
   }
+}
+
+/* Avatar */
+img {
+  max-width: 100%;
+}
+
+.container {
+  position: relative;
+  width: 5em;
+  top: 0;
+  margin-left:auto; /* Just to get the image away from the edge of the screen */
+  margin-right:auto;
+  transition: transform 300ms ease-out;
+  border-radius: 0 0 100vw 100vw; /* Round bottom edges of container */
+  overflow: hidden; /* Hide elements that exceed the 0 0 100vw 100vw bounds*/
+  pointer-events: none; /* Ensure hover only over images */
+}
+
+.parent {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  height: 10em;
+  pointer-events: none;
+}
+
+.background {
+  position: absolute; /* To stack images */
+  bottom: 0;
+  left: 0;
+  border-radius: 100vw 100vw 100vw 100vw; /* Make into a circle */
+  pointer-events: auto; /* Ensure hover only over images */
+}
+
+.person {
+  position: absolute; /* To stack images */
+  bottom: 0;
+  left: 0;
+  transition: transform 200ms ease-out;
+  /* pointer-events: auto; */ /* Ensure hover only over images */
+}
+
+.container:hover {
+  transform: scale(1.15) translateY(-0.75rem);
+}
+
+.container:hover .person {
+  transform: scale(1.1) translateY(-1.25rem);
 }
