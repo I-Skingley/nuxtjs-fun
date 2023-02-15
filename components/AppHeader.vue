@@ -43,12 +43,14 @@
       <NuxtLink to="/" class="inline link header-item">Contact</NuxtLink>
     </div>
   </div>
-  <div class="menu" v-if="show">
-    <NuxtLink to="/" class="menu-item">Home</NuxtLink>
-    <NuxtLink to="/" class="menu-item">Overview</NuxtLink>
-    <NuxtLink to="/" class="menu-item">About</NuxtLink>
-    <NuxtLink to="/" class="menu-item">Contact</NuxtLink>
-  </div>
+  <Transition name="menu-slide">
+    <div class="menu" v-if="show">
+      <NuxtLink to="/" class="menu-item">Home</NuxtLink>
+      <NuxtLink to="/" class="menu-item">Overview</NuxtLink>
+      <NuxtLink to="/" class="menu-item">About</NuxtLink>
+      <NuxtLink to="/" class="menu-item">Contact</NuxtLink>
+    </div>
+  </Transition>
 </template>
 
 <script>
