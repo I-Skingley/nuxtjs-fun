@@ -4,6 +4,7 @@ import './assets/css/main.css'
 
 <template>
   <div>
+    <AppHeader />
     <NuxtPage />
   </div>
 </template>
