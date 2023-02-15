@@ -75,9 +75,10 @@ video {
   cursor: pointer;
   position: absolute;
   background: transparent;
-  border: 2px solid #333;
+  border: 2px solid var(--button-color);
   border-radius: 0.5rem;
   margin-left: 10vw;
+  --button-color: #f6f2ec;
 }
 
 /* sidebar */
@@ -113,6 +114,7 @@ video {
 }
 
 /* Show/Hide Responsive elements */
+/* Disabled while dev */
 
 /* @media (max-width: 850px) {
   .header-items {
