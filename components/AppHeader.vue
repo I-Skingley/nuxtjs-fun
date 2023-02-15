@@ -45,10 +45,10 @@
   </div>
   <Transition name="menu-slide">
     <div class="menu" v-if="show">
-      <NuxtLink to="/" class="menu-item">Home</NuxtLink>
-      <NuxtLink to="/" class="menu-item">Overview</NuxtLink>
-      <NuxtLink to="/" class="menu-item">About</NuxtLink>
-      <NuxtLink to="/" class="menu-item">Contact</NuxtLink>
+      <NuxtLink to="/" class="link menu-item glow pulsate">Home</NuxtLink>
+      <NuxtLink to="/" class="link menu-item glow pulsate">Overview</NuxtLink>
+      <NuxtLink to="/" class="link menu-item glow pulsate">About</NuxtLink>
+      <NuxtLink to="/" class="link menu-item glow pulsate">Contact</NuxtLink>
     </div>
   </Transition>
 </template>
@@ -61,4 +61,17 @@ export default {
     };
   },
 };
+
+const pos = { x: 0, y: 0 };
+
+const saveCursorPosition = function (x, y) {
+  pos.x = (x / window.innerWidth).toFixed(2);
+  pos.y = (y / window.innerHeight).toFixed(2);
+  document.documentElement.style.setProperty("--x", pos.x);
+  document.documentElement.style.setProperty("--y", pos.y);
+};
+
+document.addEventListener("mousemove", (e) => {
+  saveCursorPosition(e.clientX, e.clientY);
+});
 </script>

@@ -1,10 +1,12 @@
 <script lang="ts" setup>
-import './assets/css/main.css'
+import "./assets/css/main.css";
 </script>
 
 <template>
   <div>
-    <AppHeader />
+    <client-only>
+      <AppHeader />
+    </client-only>
     <NuxtPage />
   </div>
 </template>
