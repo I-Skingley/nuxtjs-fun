@@ -1,3 +1,5 @@
+/* TODO MOVE PROFILE BUTTON WHEN CLICKED */
+
 *,
 *::before,
 *::after {
@@ -58,6 +60,7 @@ video {
 
 .header-items {
   margin-left: 0;
+  margin-right: 3rem;
   display: flex;
   flex-wrap: wrap;
 }
@@ -181,7 +184,6 @@ video {
   font-size: 30px;
 }
 
-
 /* Menu Transition Animation */
 
 .menu-slide-enter-active {
@@ -198,6 +200,80 @@ video {
   opacity: 0;
 }
 
+.avatar-backdrop {
+  position: absolute;
+  width: 120px;
+  height: 150px;
+  border-radius: 0 0 0 5%;
+  background: transparent;
+  z-index: 500;
+  transform-origin: center;
+}
+
+.avatar-backdrop:hover {
+  cursor: pointer;
+}
+
+/* Profile Button */
+.profile-button {
+  cursor: pointer;
+  position: absolute;
+  background: transparent;
+  border: 2px solid var(--button-color);
+  border-radius: 0.5rem;
+  right: 15px;
+  top: -52.5px;
+  transform: scale(60%);
+  --button-color: #f6f2ec;
+  border: none;
+}
+
+.menu-button:hover {
+  --button-color: #8400ff;
+  box-shadow: 0 0 15px 7px #f6f2ec, 0 0 25px 1px #8a2be2;
+}
+/* Profile Menu */
+.profile-menu {
+  width: 200px;
+  height: 150px;
+  padding-top: 0;
+  top: 80px;
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  right: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  z-index: 0;
+  /* From https://css.glass */
+  background: rgba(243, 218, 219, 0.65);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 2px solid rgba(243, 218, 219, 0.75);
+  transform-origin: top center;
+}
+
+.profile-item {
+  margin-left: 100px;
+  margin-right: 0;
+  width: 100px;
+  position: relative;
+  color: black;
+  padding-top: 10px;
+  line-height: auto;
+  padding-right: 10px;
+  padding-left: auto;
+  text-align: right;
+}
+
+.profile-item:hover {
+  background: linear-gradient(to left, #f3e4f9, 50%, #f3dadb63);
+  color: white;
+  text-underline-position: above;
+  text-shadow: 0 0 5px #8400ff;
+}
 /* Show/Hide Responsive elements */
 /* Disabled while dev */
 
@@ -271,8 +347,8 @@ img {
   position: relative;
   width: 5em;
   top: 0;
-  margin-left:auto; /* Just to get the image away from the edge of the screen */
-  margin-right:auto;
+  margin-left: auto; /* Just to get the image away from the edge of the screen */
+  margin-right: auto;
   transition: transform 300ms ease-out;
   border-radius: 0 0 100vw 100vw; /* Round bottom edges of container */
   overflow: hidden; /* Hide elements that exceed the 0 0 100vw 100vw bounds*/
@@ -303,10 +379,41 @@ img {
   /* pointer-events: auto; */ /* Ensure hover only over images */
 }
 
-.container:hover {
+.chevron {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.container:hover,
+.avatar-backdrop:hover .container {
   transform: scale(1.15) translateY(-0.75rem);
 }
 
-.container:hover .person {
+.container:hover .person,
+.avatar-backdrop:hover .person {
   transform: scale(1.1) translateY(-1.25rem);
+}
+
+.avatar-backdrop:hover .container {
+  filter: drop-shadow(0 0 0.5rem #f1fcb2);
+}
+
+.avatar-backdrop .container {
+  z-index: 999;
+  position: absolute;
+  width: 5em;
+  top: -20px;
+  left: 20px;
+  margin-left: auto; /* Just to get the image away from the edge of the screen */
+  margin-right: auto;
+  transition: transform 300ms ease-out;
+  border-radius: 0 0 100vw 100vw; /* Round bottom edges of container */
+  overflow: hidden; /* Hide elements that exceed the 0 0 100vw 100vw bounds*/
+  pointer-events: none; /* Ensure hover only over images */
+}
+
+.profile-button .container:hover .person {
+  transform: none;
+  filter: drop-shadow(0 0 0.3rem #edff87);
 }

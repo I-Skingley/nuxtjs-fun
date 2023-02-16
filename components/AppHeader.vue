@@ -6,6 +6,7 @@
       <NuxtLink to="/" class="inline link header-item">Overview</NuxtLink>
       <NuxtLink to="/" class="inline link header-item">About</NuxtLink>
       <NuxtLink to="/" class="inline link header-item">Contact</NuxtLink>
+      <Profile />
     </div>
   </div>
 </template>
