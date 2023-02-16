@@ -12,7 +12,6 @@
 </template>
 
 <script>
-
 const pos = { x: 0, y: 0 };
 
 const saveCursorPosition = function (x, y) {

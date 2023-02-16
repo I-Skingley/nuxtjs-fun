@@ -1,0 +1,417 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background: #f6f2ec;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* header */
+
+.header {
+  width: 100vw;
+  height: 150px;
+  background: linear-gradient(to right, #d2c3d8, 75%, #f3dadb);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-left: 0;
+  padding-top: 25px;
+  z-index: 999;
+}
+
+.header::before {
+  content: "";
+  width: 100%;
+  height: 48px;
+  position: absolute;
+  bottom: -0.3%;
+  left: 0;
+  background-size: auto;
+  background-repeat: repeat no-repeat;
+  background-position: calc(57vw + 10% * var(--x)) bottom;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200  123' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 90L50 84C100 79 200 68 300 46C400 24 500 -9 600 2C700 13 800 68 900 90C1000 112 1100 101 1150 96L1200 90V123H1150C1100 123 1000 123 900 123C800 123 700 123 600 123C500 123 400 123 300 123C200 123 100 123 50 123H0V90Z' fill='%23f6f2ec'/></svg>");
+}
+
+.link {
+  text-decoration: none;
+}
+
+.header-items {
+  margin-left: 0;
+  margin-right: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header-item {
+  width: 150px;
+  height: 50px;
+  margin: auto;
+  text-align: center;
+  background: #f6f2ec;
+  background-image: linear-gradient(19deg, #f6f2ec 90%, #d79af0 100%);
+  border-radius: 25vw 25vw 25vw 25vw / 25vw 25vw 25vw 25vw;
+  box-shadow: 9px 10px 20px -2px rgba(210, 195, 216, 0.95) inset;
+  -webkit-box-shadow: 9px 10px 20px -2px rgba(210, 195, 216, 0.95) inset;
+  -moz-box-shadow: 9px 10px 20px -2px rgba(210, 195, 216, 0.95) inset;
+  overflow: hidden;
+  color: black;
+  font-family: Helvetica Neue, Helvetica, Verdana, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 330%;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.header-item:hover {
+  color: #440039;
+  filter: drop-shadow(0 0 0.75rem #440039);
+}
+
+/* sidebar button */
+
+.menu-button {
+  cursor: pointer;
+  position: absolute;
+  background: transparent;
+  border: 2px solid var(--button-color);
+  border-radius: 0.5rem;
+  margin-left: 10vw;
+  --button-color: #f6f2ec;
+}
+
+.menu-button:hover {
+  --button-color: #8400ff;
+  box-shadow: 0 0 15px 7px #f6f2ec, 0 0 25px 1px #8a2be2;
+}
+
+/* sidebar button animation */
+
+.slide-up-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-up-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-up-enter-from,
+.slide-up-leave-to {
+  y: 0px;
+  opacity: 0;
+}
+
+.slide-down-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-down-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-down-enter-from,
+.slide-down-leave-to {
+  y: 100px;
+  opacity: 0;
+}
+
+.middle-enter-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.middle-leave-active {
+  transition: all 200ms linear;
+}
+.middle-enter-from,
+.middle-leave-to {
+  transform-origin: center;
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+/* sidebar */
+
+.menu {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  top: 100px;
+  left: 0px;
+  width: 25vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, #d2c3d8, 50%, #f3dadb);
+  z-index: 999;
+  transform-origin: center top;
+  border-radius: 0 0 10px 0;
+}
+
+.menu-item {
+  height: 100px;
+  width: 100%;
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 5px;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: auto;
+  font-size: 30px;
+}
+
+/* Menu Transition Animation */
+
+.menu-slide-enter-active {
+  transition: all 0.25s ease-in-out;
+}
+
+.menu-slide-leave-active {
+  transition: all 0.25s ease-in-out;
+}
+
+.menu-slide-enter-from,
+.menu-slide-leave-to {
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+.avatar-backdrop {
+  position: absolute;
+  width: 120px;
+  height: 150px;
+  border-radius: 0 0 0 5%;
+  background: transparent;
+  z-index: 500;
+  transform-origin: center;
+}
+
+.avatar-backdrop:hover {
+  cursor: pointer;
+}
+
+/* Profile Button */
+.profile-button {
+  cursor: pointer;
+  position: absolute;
+  background: transparent;
+  border: 2px solid var(--button-color);
+  border-radius: 0.5rem;
+  right: 15px;
+  top: -52.5px;
+  transform: scale(60%);
+  --button-color: #f6f2ec;
+  border: none;
+}
+
+.menu-button:hover {
+  --button-color: #8400ff;
+  box-shadow: 0 0 15px 7px #f6f2ec, 0 0 25px 1px #8a2be2;
+}
+/* Profile Menu */
+.profile-menu {
+  width: 200px;
+  height: 150px;
+  padding-top: 0;
+  top: 80px;
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  right: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  z-index: 0;
+  /* From https://css.glass */
+  background: rgba(243, 218, 219, 0.65);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 2px solid rgba(243, 218, 219, 0.75);
+  transform-origin: top center;
+}
+
+.profile-item {
+  margin-left: 100px;
+  margin-right: 0;
+  width: 100px;
+  position: relative;
+  color: black;
+  padding-top: 10px;
+  line-height: auto;
+  padding-right: 10px;
+  padding-left: auto;
+  text-align: right;
+}
+
+.profile-item:hover {
+  background: linear-gradient(to left, #f3e4f9, 50%, #f3dadb63);
+  color: white;
+  text-underline-position: above;
+  text-shadow: 0 0 5px #8400ff;
+}
+/* Show/Hide Responsive elements */
+/* Disabled while dev */
+
+@media (max-width: 850px) {
+  .header-items {
+    display: none;
+  }
+}
+
+@media (min-width: 850px) {
+  .menu-button {
+    display: none;
+  }
+  .menu {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .menu-item {
+    font-size: 20px;
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+  }
+
+  .header::before {
+    content: "";
+    width: 100%;
+    height: 48px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: none;
+    background-repeat: none;
+    background-position: none;
+    background-image: none;
+  }
+}
+
+.glow:hover {
+  color: #fff;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #b700ff,
+    0 0 82px #b700ff, 0 0 92px #b700ff, 0 0 102px #b700ff, 0 0 151px #b700ff;
+}
+
+.pulsate:hover {
+  animation: pulsate 1.5s infinite alternate;
+}
+
+@keyframes pulsate {
+  100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #b700ff,
+      0 0 80px #b700ff, 0 0 90px #b700ff, 0 0 100px #b700ff, 0 0 150px #b700ff;
+  }
+
+  0% {
+    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 10px #b700ff,
+      0 0 45px #b700ff, 0 0 55px #b700ff, 0 0 70px #b700ff, 0 0 80px #b700ff;
+  }
+}
+
+/* Avatar */
+img {
+  max-width: 100%;
+}
+
+.container {
+  position: relative;
+  width: 5em;
+  top: 0;
+  margin-left: auto; /* Just to get the image away from the edge of the screen */
+  margin-right: auto;
+  transition: transform 300ms ease-out;
+  border-radius: 0 0 100vw 100vw; /* Round bottom edges of container */
+  overflow: hidden; /* Hide elements that exceed the 0 0 100vw 100vw bounds*/
+  pointer-events: none; /* Ensure hover only over images */
+}
+
+.parent {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  height: 10em;
+  pointer-events: none;
+}
+
+.background {
+  position: absolute; /* To stack images */
+  bottom: 0;
+  left: 0;
+  border-radius: 100vw 100vw 100vw 100vw; /* Make into a circle */
+  pointer-events: auto; /* Ensure hover only over images */
+}
+
+.person {
+  position: absolute; /* To stack images */
+  bottom: 0;
+  left: 0;
+  transition: transform 200ms ease-out;
+  /* pointer-events: auto; */ /* Ensure hover only over images */
+}
+
+.chevron {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.container:hover,
+.avatar-backdrop:hover .container {
+  transform: scale(1.15) translateY(-0.75rem);
+}
+
+.container:hover .person,
+.avatar-backdrop:hover .person {
+  transform: scale(1.1) translateY(-1.25rem);
+}
+
+.avatar-backdrop:hover .container {
+  filter: drop-shadow(0 0 0.5rem #f1fcb2);
+}
+
+.avatar-backdrop .container {
+  z-index: 999;
+  position: absolute;
+  width: 5em;
+  top: -20px;
+  left: 20px;
+  margin-left: auto; /* Just to get the image away from the edge of the screen */
+  margin-right: auto;
+  transition: transform 300ms ease-out;
+  border-radius: 0 0 100vw 100vw; /* Round bottom edges of container */
+  overflow: hidden; /* Hide elements that exceed the 0 0 100vw 100vw bounds*/
+  pointer-events: none; /* Ensure hover only over images */
+}
+
+.profile-button .container:hover .person {
+  transform: none;
+  filter: drop-shadow(0 0 0.3rem #edff87);
+}

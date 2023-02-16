@@ -38,7 +38,7 @@
             </div>
           </div>
       </div>
-      <NuxtLink to="/" class="link profile-item">Profile</NuxtLink>
+      <NuxtLink to="/profile" class="link profile-item">Profile</NuxtLink>
       <NuxtLink to="/" class="link profile-item">Preferences</NuxtLink>
       <NuxtLink to="/" class="link profile-item">Payment History</NuxtLink>
       <NuxtLink to="/" class="link profile-item">Log Out</NuxtLink>

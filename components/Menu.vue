@@ -46,7 +46,7 @@
   </button>
   <Transition name="menu-slide">
     <div class="menu" v-if="show">
-      <NuxtLink to="#" class="container">
+      <NuxtLink to="/profile" class="container">
         <img class="background" src="/avatar/pattern.png" alt="" />
         <div class="parent">
           <img class="person" src="/avatar/spongebob.png" alt="person" />
